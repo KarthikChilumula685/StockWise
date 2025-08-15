@@ -37,14 +37,14 @@ const Testimonials = () => {
               className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition text-left"
             >
               <div className="flex items-center gap-4 mb-4">
-                <img
+                {/* <img
                   src={t.image}
                   alt={t.name}
                   className="w-12 h-12 rounded-full object-cover border-2 border-[#4F46E5]"
                   onError={(e) => {
                     e.target.src = "https://via.placeholder.com/48";
                   }}
-                />
+                /> */}
                 <div>
                   <h3 className="font-semibold text-gray-800">{t.name}</h3>
                   <p className="text-sm text-gray-500">{t.role}</p>
