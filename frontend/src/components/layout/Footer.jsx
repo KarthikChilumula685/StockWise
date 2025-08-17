@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ContactCard from '../ui/ContactCard';
 
 const Footer = () => {
   return (
@@ -20,7 +21,10 @@ const Footer = () => {
             <li><Link to="/" className="hover:text-blue-600">Home</Link></li>
             <li><Link to="/about" className="hover:text-blue-600">About</Link></li>
             <li><Link to="/login" className="hover:text-blue-600">Login</Link></li>
-            <li><Link to="/contact" className="hover:text-blue-600">Contact</Link></li>
+           <li className="relative group inline-block cursor-pointer">
+          <span className="hover:text-blue-600 transition">Contact</span>
+          <ContactCard position="right"/>
+</li>
           </ul>
         </div>
 

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import ContactCard from '../ui/ContactCard';
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const isLoggedIn = !!localStorage.getItem('token'); // simulate login
+  const isLoggedIn = !!localStorage.getItem('token');
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -16,7 +17,6 @@ const NavBar = () => {
     <nav className="w-full bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          
           {/* Logo */}
           <div className="text-2xl font-bold text-blue-600">
             <Link to="/">StockWise</Link>
@@ -26,6 +26,12 @@ const NavBar = () => {
           <div className="hidden md:flex items-center space-x-6 text-gray-700 font-medium">
             <Link to="/" className="hover:text-blue-600 transition">Home</Link>
             <Link to="/about" className="hover:text-blue-600 transition">About</Link>
+
+            {/* Contact Hover Card */}
+            <div className="relative group">
+            <span className="hover:text-blue-600 transition cursor-pointer">Contact</span>
+            <ContactCard psoiton="bottom"/>
+            </div>
 
             {isLoggedIn ? (
               <>
@@ -57,8 +63,7 @@ const NavBar = () => {
               onClick={() => setMenuOpen(!menuOpen)}
               className="text-gray-700 focus:outline-none"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2}
-                viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 {menuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -75,6 +80,22 @@ const NavBar = () => {
         <div className="md:hidden bg-white px-4 py-4 space-y-3 shadow-md text-gray-700 font-medium">
           <Link to="/" className="block hover:text-blue-600" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/about" className="block hover:text-blue-600" onClick={() => setMenuOpen(false)}>About</Link>
+
+          {/* Contact info static on mobile */}
+          <div className="block text-gray-700">
+            <p className="font-semibold">Contact</p>
+            <div className="text-sm mt-1 space-y-1">
+              <div className="flex gap-1">
+                <strong>Name:</strong> <span>Karthik Chilumula</span>
+              </div>
+              <div className="flex gap-1">
+                <strong>Email:</strong> <span>karthikbunny2005@gmail.com</span>
+              </div>
+              <div className="flex gap-1">
+                <strong>Phone:</strong> <span>+91 9440931842</span>
+              </div>
+            </div>
+          </div>
 
           {isLoggedIn ? (
             <>
