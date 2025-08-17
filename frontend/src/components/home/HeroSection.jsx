@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import heroImg from "../../assets/hero-section.jpg";
+
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
